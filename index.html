@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="uplifter">
+  <head>
+    <title>UPLIFTER</title>
+    <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="styles.min.css" />
+    <link rel="stylesheet" href="styles/fade.css">
+    <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap-theme.min.css" />
+    <script src="vendor/jquery/dist/jquery.min.js"></script>
+    <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="vendor/angular/angular.min.js"></script>
+    <script src="scripts.min.js"></script>
+  </head>
+  <body>
+    <div class="container fade-in" ng-controller="MainController as ctrl">
+      <div class="moods fade-in one">
+        <header class="heading">
+          <h1>UPLIFTER</h1>
+        </header>
+        <div class="mood" ng-repeat="mood in ctrl.moods">
+          <button class="btn btn-primary" ng-click="ctrl.setMood(mood)">
+            {{ mood.title }}
+          </button>
+        </div>
+      </div>
+      <div class="songs fade-in one">
+        <button class="btn vid-control-btn btn-success" ng-hide="ctrl.video" ng-click="ctrl.showVideo()">Show Video</button>
+        <button class="btn vid-control-btn btn-success" ng-show="ctrl.video" ng-click="ctrl.hideVideo()">Hide Video</button>
+        <h1>{{ ctrl.playlist.id }}</h1>
+        <iframe class="player" ng-show="ctrl.video" ng-src="{{ ctrl.playlist.url }}" allowfullscren="true">Sorry, your browser does not support iframes (inline frames)</iframe>        
+      </div>
+    </div>
+    <footer class="text-center">
+      <p>Created By:</p>
+      <ul class="cred list-inline">
+        <li><a href="https://github.com/CodingPower472" target="_blank">CodingPower472</a></li>
+        <li><a href="https://github.com/Tenkaklet" target="_blank">Tenkaklet</a></li>
+        <li><a href="#" target="_blank">Stormborn</a></li>
+        <li><a href="https://github.com/mildused" target="_blank">Mildused</a></li>
+      </ul>
+    </footer>
+  </body>
+</html>
